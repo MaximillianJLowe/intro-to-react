@@ -1,52 +1,59 @@
 <html lang="en">
   <head>
-    <title>Welcome to Bloc</title>
+    <title>My Third React app</title>
   </head>
   <body>
 
-    <div id="app"></div>
+    <div id="appScratch"></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.1.0/umd/react.development.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.1.0/umd/react-dom.development.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
 
     <script type="text/babel">
-
-      class Counter extends React.Component {
-        constructor(props){
-          super(props);
-          this.state = {
-            number: 1
+      
+      class Scratch extends React.Component {
+  	      constructor(props){
+            super(props);
+            this.state = {
+              name: "Max Lowe" ,
+              age: 40 ,
+              market: "Chicago"
+            }
           }
-        }
-
+         
         render() {
-          return (
-            <div>
-              <img src={this.props.image} alt="Bloc Logo"/>
-              <h2>Current program: {this.props.label}</h2>
-              <h3>Current week: {this.state.number}</h3>
-              <p>Current Date: {this.props.date.toLocaleDateString()}</p>
-            </div>
+	   return (
+	    <div>
+ 	      <h1>Student Snapshot</h1>
+       <h2>{this.state.name}</h2>
+       <ul></ul>   
+       <li>BLOC Track: {this.props.program}</li>   
+            <li>Age: {this.state.age}</li>
+              <li>Job Market: {this.state.market}</li>
+                <li>Mentor: {this.props.mentor}</li>
+                  <p>Current Date: {this.props.date.toLocaleDateString()}</p>
+	    </div>
           );
         }
-      }
-
-      const info = {
+       }
+       
+       const info = {
         date: new Date(),
         image: 'https://avatars0.githubusercontent.com/u/1441485?v=4&s=280',
       }
-
-      Counter.defaultProps = {
-        label: "Web Developer Track"
-      }
-
+       
+       Scratch.defaultProps = {
+          program: "Web Dev" ,
+            mentor: "William Turner"
+       }
+      
       ReactDOM.render(
-        <Counter
-          date={info.date}
-          image={info.image}/>,document.getElementById('app')
+ 	      <Scratch 
+          date={info.date} 
+          image={info.image}/>,document.getElementById('appScratch')
       );
-
+      
     </script>
   </body>
 </html>
